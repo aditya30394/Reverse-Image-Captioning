@@ -145,7 +145,7 @@ class GAN_CLS(object):
         # data_img is changed to [0,1]
         if data_img is not None:
             data_img = data_img[0:num]
-            vutils.save_image(data_img, '%s/real_samples.png' % image_dir, normalize=True)
+            vutils.save_image(data_img, '%s/real_samples_epoch_%03d.png' % (image_dir, epoch), normalize=True)
             # fake.data is still [-1, 1]
             vutils.save_image(fake.data, '%s/fake_samples_epoch_%03d.png' %(image_dir, epoch), normalize=True)
         else:
