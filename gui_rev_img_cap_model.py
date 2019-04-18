@@ -95,6 +95,7 @@ def GenerateImage():
     z = z.cuda()
     text_input = E1.get()
     if (len(text_input) >= 10):
+        text_input = text_input.lower()
         text_input = [text_input]
         print(text_input)
         text_embedding = encoder.encode(text_input)
