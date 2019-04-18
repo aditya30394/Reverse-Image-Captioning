@@ -1,35 +1,44 @@
-# StackGAN-pytorch
-- [Tensorflow implementation](https://github.com/hanzhanggit/StackGAN)
-
-- [Inception score evaluation](https://github.com/hanzhanggit/StackGAN-inception-model)
-
-- [StackGAN-v2-pytorch](https://github.com/hanzhanggit/StackGAN-v2)
-
-Pytorch implementation for reproducing COCO results in the paper [StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks](https://arxiv.org/pdf/1612.03242v2.pdf) by Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaogang Wang, Xiaolei Huang, Dimitris Metaxas. The network structure is slightly different from the tensorflow implementation. 
-
-<img src="examples/framework.jpg" width="850px" height="370px"/>
-
+# Reverse-Image-Captioning
 
 ### Dependencies
-python 2.7
+* Python 2.7
+* Pytorch
+* Theano 0.7
+* A recent version of [NumPy](http://www.numpy.org/) and [SciPy](http://www.scipy.org/)
+* [scikit-learn](http://scikit-learn.org/stable/index.html)
+* [NLTK 3](http://www.nltk.org/)
+* [Keras](https://github.com/fchollet/keras) (for Semantic-Relatedness experiments only)
+* [gensim](https://radimrehurek.com/gensim/) (for vocabulary expansion when training new models)
 
-Pytorch
-
-In addition, please add the project folder to PYTHONPATH and `pip install` the following packages:
-- `tensorboard`
+In addition, please `pip install` the following packages:
+- `tensorboard tensorboardX tensorboard-pytorch`
 - `python-dateutil`
 - `easydict`
 - `pandas`
 - `torchfile`
+- `wget`
 
+## Getting started
 
+You will first need to download the model files and word embeddings. The embedding files (utable and btable) are quite large (>2GB) so make sure there is enough space available. The encoder vocabulary can be found in dictionary.txt.
 
+    wget http://www.cs.toronto.edu/~rkiros/models/dictionary.txt
+    wget http://www.cs.toronto.edu/~rkiros/models/utable.npy
+    wget http://www.cs.toronto.edu/~rkiros/models/btable.npy
+    wget http://www.cs.toronto.edu/~rkiros/models/uni_skip.npz
+    wget http://www.cs.toronto.edu/~rkiros/models/uni_skip.npz.pkl
+    wget http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz
+    wget http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz.pkl
+
+## List of available shapes
+
+[percentage, omega, copyright, beta, ampersand, sigma, right arrow, down arrow, octagon, minus, euro, cube, up arrow, thunder, ellipse, plus, circle, question mark, square braces, curly braces, left arrow, semicolon, heptagon, less than, infinity, rectangle, heart, root, set union, pie, hashtag, double horizontal arrow, square, cloud, pound, asterisk, dollar, pentagon, star, multiplication, double vertical arrow, phi, cent, hexagon, equality, alpha, images, lambda, triangle, set intersection, greater than, exclamation mark]
+    
 **Data**
 
 1. Download our preprocessed char-CNN-RNN text embeddings for [training coco](https://drive.google.com/open?id=0B3y_msrWZaXLQXVzOENCY2E3TlU) and  [evaluating coco](https://drive.google.com/open?id=0B3y_msrWZaXLeEs5MTg0RC1fa0U), save them to `data/coco`.
   - [Optional] Follow the instructions [reedscot/icml2016](https://github.com/reedscot/icml2016) to download the pretrained char-CNN-RNN text encoders and extract text embeddings.
 2. Download the [coco](http://cocodataset.org/#download) image data. Extract them to `data/coco/`.
-
 
 
 **Training**
