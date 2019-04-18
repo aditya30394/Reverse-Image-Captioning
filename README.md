@@ -30,6 +30,10 @@ You will first need to download the model files and word embeddings. The embeddi
     wget http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz
     wget http://www.cs.toronto.edu/~rkiros/models/bi_skip.npz.pkl
 
+## List of available shapes
+
+[percentage, omega, copyright, beta, ampersand, sigma, right arrow, down arrow, octagon, minus, euro, cube, up arrow, thunder, ellipse, plus, circle, question mark, square braces, curly braces, left arrow, semicolon, heptagon, less than, infinity, rectangle, heart, root, set union, pie, hashtag, double horizontal arrow, square, cloud, pound, asterisk, dollar, pentagon, star, multiplication, double vertical arrow, phi, cent, hexagon, equality, alpha, images, lambda, triangle, set intersection, greater than, exclamation mark]
+    
 **Data**
 
 1. Download our preprocessed char-CNN-RNN text embeddings for [training coco](https://drive.google.com/open?id=0B3y_msrWZaXLQXVzOENCY2E3TlU) and  [evaluating coco](https://drive.google.com/open?id=0B3y_msrWZaXLeEs5MTg0RC1fa0U), save them to `data/coco`.
